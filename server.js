@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const path = require("path");
 
 const app = express();
 
@@ -13,6 +14,10 @@ const sendBody = (req, res) => {
   const { a, b } = req.body;
   res.send(`the sum is ${a + b}`);
 };
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
 
 app.get("/", sayHi);
 
