@@ -12,7 +12,9 @@ const sayHi = (req, res) => {
 
 const sendBody = (req, res) => {
   const { a, b } = req.body;
-  res.send(`the sum is ${a + b}`);
+  res.send({
+    result: parseInt(a) + parseInt(b),
+  });
 };
 
 app.get("/", (req, res) => {
